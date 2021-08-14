@@ -6,10 +6,17 @@ using namespace std;
 vector<int> parseInts(string str) {
 	stringstream ss(str);
     vector<int> arr;
+    // Handlers for the datatypes that will show in the str
     char ch;
     int temp;
     
+    // While the stringstream object does not hit a null byte
     while (ss) {
+        /* 
+         *  Extract the comma seperated ints with the extraction >> operator
+         *  Operator >> EXTRACTS formatted data.
+         *  Operator << INSERTS formatted data.
+        */
         ss >> temp >> ch;
         arr.push_back(temp);
     }
