@@ -6,8 +6,8 @@ int main() {
     // Fibonacci Sequence
     // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
     
-    int size = 20;
-    int fibonacci_seq[size];
+    const int size = 20;
+    int fibonacci_sequence[size];
 
     int first_term = 0;
     int second_term = 1;
@@ -18,7 +18,7 @@ int main() {
         first_term = second_term;
         second_term = next_term;
 
-        cout << fibonacci_seq[i] << endl;
+        cout << fibonacci_sequence[i] << endl;
     } 
     return 0;
 }
