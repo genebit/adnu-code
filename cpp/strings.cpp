@@ -1,14 +1,15 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-
+int main()
+{
     string a, b;
-
     cin >> a >> b;
 
     printf("%d %d\n", a.size(), b.size());
-    cout << (a + b) << "\n";
+
+    cout << a.size() << " " << b.size() << endl;
+    cout << (a + b) << endl;
 
     char a_temp = b[0];
     char b_temp = a[0];

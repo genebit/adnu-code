@@ -19,7 +19,6 @@ using namespace std;
 class Student
 {
     int scores[5];
-
 public:
     void input()
     {
@@ -31,7 +30,8 @@ public:
     int calculateTotalScore()
     {
         int totalScore = scores[0];
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < 5; i++)
+        {
             totalScore += scores[i];
         }
         return totalScore;
