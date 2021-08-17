@@ -20,7 +20,7 @@ vector<float> getGoldenRatio(const int& size, vector<int>& fibSeq)
     vector<float> seq;
     for (int i = 0; i < size; i++)
     {
-        float nextTerm = float(fibSeq[i]) / fibSeq[i+1];
+        float nextTerm = float(fibSeq[i+1]) / fibSeq[i];
         seq.push_back(nextTerm);
     }
     return seq;
