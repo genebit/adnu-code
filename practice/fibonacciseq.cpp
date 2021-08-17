@@ -1,24 +1,35 @@
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
-int main()
+vector<int> getSequence(int size, int firstTerm, int secondTerm) 
 {
-    // Fibonacci Sequence
-    // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
-
-    const int size = 20;
-    int fibonacci_sequence[size];
-
-    int first_term = 0;
-    int second_term = 1;
-
+    vector<int> sequence;
+    
     for (int i = 0; i < size; i++)
     {
-        int next_term = first_term + second_term;
-        first_term = second_term;
-        second_term = next_term;
+        int nextTerm = firstTerm + secondTerm;
+        firstTerm = secondTerm;
+        secondTerm = nextTerm;
 
-        cout << fibonacci_sequence[i] << endl;
+        sequence.push_back(nextTerm);
     }
+    return sequence;
+}
+int main()
+{
+    const int size = 10;
+
+    int firstTerm = 0;
+    int secondTerm = 1;
+    vector<int> fibonacciSequence = getSequence(size, firstTerm, secondTerm);
+    
+    // Display the fibonacci list
+    for (int seq : fibonacciSequence)
+    {
+        cout << seq << endl;
+    }
+    
     return 0;
 }
