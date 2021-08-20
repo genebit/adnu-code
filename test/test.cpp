@@ -1,10 +1,11 @@
 #include <iostream>
-#include <bits/stdc++.h>
-
-using namespace std;
+#include <cstring>
 
 int main()
 {
-    cout << "Hello World!" << endl;    
+    std::string name = "genebitara";
+    const char* n = name.c_str();
+
+    std::cout << n << std::endl;
     return 0;
 }
