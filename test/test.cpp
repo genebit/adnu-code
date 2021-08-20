@@ -3,18 +3,9 @@
 
 int main()
 {
-    std::string name = "add";
+    std::string name = "genebitara";
     const char* n = name.c_str();
 
-    switch (convert(n))
-    {
-    case "add": 
-        std::cout << "Add\n";
-        break;
-    
-    case "minus": 
-        std::cout << "Minus\n";
-        break;
-    }
+    std::cout << n << std::endl;
     return 0;
 }
