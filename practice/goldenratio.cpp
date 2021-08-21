@@ -24,8 +24,8 @@ vector<float> getGoldenRatio(const int& size, vector<int>& fibSeq)
         seq.push_back(nextTerm);
     }
     return seq;
-
 }
+
 float round(float num)
 {
     // Rounds off by 2
@@ -43,14 +43,19 @@ int main()
 
     cout << "Fibonacci Sequence\n";
     // Display the fibonacci Seq
-    for (int item : fibonacciSeq) { cout << item << endl; }
+    for (int i = 0; i < fibonacciSeq.size(); i++) 
+    { 
+        cout << to_string(i+1) + ") " << fibonacciSeq[i] << endl; 
+    }
 
     cout << "Golden Ratio\n";
     vector<float> goldenRatio = getGoldenRatio(size, fibonacciSeq);
     goldenRatio.erase(goldenRatio.begin() + size-1);
 
     // Display the golden ratio
-    for (float item : goldenRatio) { cout << round(item) << endl; }
-
+    for (int i = 0; i < goldenRatio.size(); i++) 
+    { 
+        cout << to_string(i+1) + ") " << round(goldenRatio[i]) << endl; 
+    }
     return 0;
 }
