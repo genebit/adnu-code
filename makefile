@@ -1,3 +1,3 @@
 # output the .exe files once build
 clean:
-	rm ./src/*.exe ./test/*.exe
+	rm ./src/*.exe ./edabit/*.exe ./test/*.exe
