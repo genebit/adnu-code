@@ -2,7 +2,7 @@
 #include <algorithm>
 
 // Each toy car needs 4 wheels, 1 car body, and 2 figures of people to be placed inside.
-
+ 
 int objectCounter(int parts, int requirment)
 {
     int counter = 0;
