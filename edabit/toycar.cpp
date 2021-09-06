@@ -1,7 +1,14 @@
 #include <iostream>
 #include <algorithm>
 
-// Each toy car needs 4 wheels, 1 car body, and 2 figures of people to be placed inside.
+/*
+    Each toy car needs 4 wheels, 1 car body, and 2 figures of people to be placed inside.
+  
+    Example:
+        cars(2, 48, 76) ➞ 0
+        cars(43, 15, 87) ➞ 10
+        cars(88, 37, 17) ➞ 8
+*/
 
 int cars(int wheels, int car_bodies, int figures)
 {
@@ -10,18 +17,13 @@ int cars(int wheels, int car_bodies, int figures)
 
     if (wheels >= 4 && car_bodies >= 1 && figures >= 2) // If the requirments are met per car
     {
-        // Finding the lowest element
-        // int temp = wheels;
-
-        // for (int i : toycar)
-        //     if (temp >= i)
-        //         temp = i;
-
         do 
         {
+            // Subtract the parts until it meets the limit of the parts
             wheels -= 4;
             car_bodies -= 1;
             figures -= 2;
+
             counter++;
         } while (wheels >= 4 && car_bodies >= 1 && figures >= 2);
     }
