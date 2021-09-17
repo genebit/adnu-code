@@ -1,20 +1,26 @@
-#include <iostream>
 #include <vector>
-#include <string>
+#include <iostream>
+#include <iterator>
+#include <algorithm>
 
-std::string reverse(std::string& text)
+std::string reverse(std::string str)
 {
-    std::string reversed_text[];
-
-    for (int i = 0 : *text)
-        reversed_text[i] = *text[i];
-
-    for (int i = *text.size(); i >= 0; i--)
-    {
-        reversed_text[i] = *text[i];
-    }
-    return reversed_text;
+    std::string reversed_string;
+    for (int i = str.length()-1; i >= 0; i--)
+        reversed_string = reversed_string + str[i];
+    return reversed_string;
 }
+
+// SOLUTION 2
+// std::string reverse(std::string str) {
+// 	std::vector<char> arr;
+// 	for (char i : str)
+// 		arr.push_back(i);
+// 	std::reverse(arr.begin(), arr.end());
+
+//     std::string reversedString(arr.begin(), arr.end());
+// 	return reversedString;
+// }
 
 int main()
 {
