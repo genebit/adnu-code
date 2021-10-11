@@ -23,7 +23,6 @@
 // DCS, College of Computer Studies
 // Ateneo de Naga University
 //******************************************************************
-
 #include <iostream>
 #include <iomanip>
 
