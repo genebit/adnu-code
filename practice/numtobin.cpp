@@ -11,7 +11,9 @@ void display_output(vector<int> arr)
 
 int main()
 {   
-    int decimal = 125;
+    int decimal;
+    cin >> decimal;
+    
     vector<int> reversed_binary;   
     vector<int> binary;
 
