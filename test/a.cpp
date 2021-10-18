@@ -18,6 +18,6 @@ std::string uncensor(std::string str, std::string vowels) {
 
 int main()
 {   
-    std::cout << uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo") << std::endl;
+    // std::cout << uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo") << std::endl;
     return 0;
 }
