@@ -2,3 +2,4 @@ output/main.exe
 output/main
 *.exe
 test/test.cpp
+.vscode/launch.json
