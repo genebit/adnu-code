@@ -32,14 +32,9 @@ int main() {
     int counter = 0; // For outputing the count for how many odd numbers
     
     while (std::cin >> num) {
-        if (num % 2 == 1) { // Check if num is not divisible by 2 
+        if (num % 2 != 0) { // Check if num is not divisible by 2 
             counter++; // Increment the counter since it is odd
         }
-    }
-    // Random condition, for test case 2...
-    // Why is given 231 == counter 3??? 
-    if (num == 231) {
-        counter = 3;
     }
         
     // Display the counter
