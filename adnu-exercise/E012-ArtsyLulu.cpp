@@ -25,6 +25,7 @@
 //******************************************************************
 
 #include <iostream>
+#include <string>
 #include <vector> // For handling vector arrays lists.
 
 int main() {
