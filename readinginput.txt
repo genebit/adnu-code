@@ -1,0 +1,6 @@
+to use a txt file for input:
+1. create a input.txt file
+2. run the code that takes in an input
+3. in terminal: run the code
+    syntax:
+        output/main.exe < input.txt
