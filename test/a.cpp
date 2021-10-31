@@ -1,9 +1,16 @@
 #include <iostream>
 #include <cstdio>
 
-// NOTE(GENE): Don't include this in git anymore
+using namespace std;
 
-int main()
-{   
+void init() {
+    freopen("../input.txt", "r", stdin);
+    freopen("../output.txt", "w", stdout);
+}
+
+int main() {
+    init();
+
+    
     return 0;
 }
