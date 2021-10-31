@@ -1,3 +1,11 @@
-# output the .exe files once build
+
+FINDFILES = find ./ -type f \( -name \*.exe -o -name \*.out \)
+# NOTE:	
+# 	-type f 	->	only search for files (not directories)
+#   \( & \)		->	are needed for the -type f to apply to all arguments
+# 	-o			->	logical OR operator
+# 	-name 		->	but the match is case insensitive
+
 clean:
-	rm ./src/*.exe ./edabit/*.exe ./test/*.exe ./adnu-exercise/*.exe
+	@$(FINDFILES) -delete
+	@echo Successfully removed exe files!
