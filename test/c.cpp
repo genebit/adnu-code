@@ -4,13 +4,12 @@
 using namespace std;
 
 void init() {
-    freopen("../input.txt", "r", stdin);
-    freopen("../output.txt", "w", stdout);
+    freopen("../in.txt", "r", stdin);
+    freopen("../out.txt", "w", stdout);
 }
 
 int main() {
     init();
-
     
     return 0;
 }
