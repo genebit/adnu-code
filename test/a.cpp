@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstdio>
+#include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -10,30 +12,16 @@ void init() {
 
 int main() {
     init();
-    
-    string str = "XYZ";
+
+    char c = 'o';
+    int height;
+    cin >> height;
 
     string result;
-    char letter = 'A';
-    char alphabet[26];
-
-    for (int i = 0; i < 26; ++i) {
-        alphabet[i] = letter;
-        letter++;
+    for (int i = 0; i < height; ++i) {
+        result.push_back(c);
+        cout << setfill(' ') << setw(3) << result << endl;
     }
-
-    for (int i = 0; i < str.size(); ++i) {
-        for (int j = 0; j < 26; ++j) {
-            if (str[i] == alphabet[j]) {
-                result += to_string(j);
-
-                if (i < str.size()-1) {
-                    result += " ";
-                }
-            }
-        }
-    }
-    cout << result << endl;
 
     return 0;
 }
