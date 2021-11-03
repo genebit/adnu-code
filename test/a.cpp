@@ -12,16 +12,6 @@ void init() {
 
 int main() {
     init();
-
-    char c = 'o';
-    int height;
-    cin >> height;
-
-    string result;
-    for (int i = 0; i < height; ++i) {
-        result.push_back(c);
-        cout << setfill(' ') << setw(3) << result << endl;
-    }
-
+    
     return 0;
 }

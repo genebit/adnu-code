@@ -14,6 +14,5 @@ int main()
 {
     init();
     
-    cout << "Hello WOrld!";
     return 0;
 }
