@@ -28,46 +28,39 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 int main()
 {
-    // Declare N for handling the num of list
-    int num_of_list;
-    cin >> num_of_list;
-    cin >> ws; // Ignore whitespace
+    int size; // Variable for N size of each list
+    cin >> size;
+    cin >> ws; // Ignore white space
 
-    // Get each line and store it to a vector array
-    vector<string> str_list;
-    for(int i = 0; i < num_of_list; i++)
-    {
-        string temp; // Store the line in this temp string
-        getline(cin, temp);
-        str_list.push_back(temp); // Store the values of temp to the str_list
-    }
-    
-    // Convert the string to an integer and store it through a temp vector array 
-    // Which will then be stored to a 2D array where each indexes is the list of num.
-    vector<vector<int>> list_of_num;
-    for (int i = 0; i < str_list.size(); i++) {
-        stringstream ss(str_list[i]);
+    vector<vector<int>> list; 
+    for (int i = 0; i < size; i++) {
+        /* LOGIC: Store the list of num each line into a string,
+            Parse it through stringstream and get the int,
+            push all the num to a 2d array list.
+        */
+        string str;
+        getline(cin, str);
+
+        stringstream ss(str);
         int num;
         vector<int> temp;
         while (ss >> num) {
             temp.push_back(num);
         }
-        list_of_num.push_back(temp);
+        list.push_back(temp);
     }
-    
-    // OUTPUT
-    for (int i = 0; i < list_of_num.size(); i++) {
-        // Sort the unsorted list to locate min and max of element.
-        sort(list_of_num[i].begin(), list_of_num[i].end());
-        
-        // For each list in the list_of_num output its min and max.
-        int min = list_of_num[i][i];
-        int max = list_of_num[i][list_of_num[i].size() - 1];
-        cout << min << " " << max << " " << (min + max);
+
+    for (int i = 0; i < list.size(); i++) { // Output
+        sort(list[i].begin(), list[i].end());
+        int min = list[i][0], max = list[i][list[i].size()-1];
+
+        cout << min << " " << max << " ";
+        cout << (min + max);
         cout << endl;
     }
     return 0;
