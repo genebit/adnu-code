@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <iomanip>
 #include <string>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -12,6 +13,6 @@ void init() {
 
 int main() {
     init();
-    
+
     return 0;
 }
