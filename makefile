@@ -1,5 +1,5 @@
 
-FINDFILES = find ./ -type f \( -name \*.exe -o -name \*.out \)
+FINDFILES = find . -perm /ugo+x -type f \( -name \*.exe -o -name \*.out \) 
 # NOTE:	
 # 	-type f 	->	only search for files (not directories)
 #   \( & \)		->	are needed for the -type f to apply to all arguments
