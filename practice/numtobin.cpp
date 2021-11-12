@@ -3,31 +3,28 @@
 
 using namespace std;
 
-void display_output(vector<int> arr) 
-{
-    for (int i = 0; i < arr.size(); i++)
-        cout << arr[i];
-}
-
-int main()
-{   
-    int decimal;
-    cin >> decimal;
-    
-    vector<int> reversed_binary;   
+void dec_to_binary(int dec) {
     vector<int> binary;
 
-    while (decimal > 0) 
-    {
-        reversed_binary.push_back(decimal % 2 == 1);
-        decimal /= 2;
+    cout << "Solution:\n";
+    for (int i = dec; i > 0; i /= 2) {
+        cout << setfill(' ') << setw(to_string(dec).size());
+        int bit = (i % 2 != 0);
+        cout << i << " ÷ 2 = " << bit << endl;
+        binary.push_back(bit);
     }
-    for (int i = reversed_binary.size()-1; i >= 0; i--)
-        binary.push_back(reversed_binary[i]);
 
-    display_output(binary);
-    
-    cout << endl;
+    cout << "\nThe Binary Convertion of " + to_string(dec) + " is: ";
+    for (int i = binary.size()-1; i >= 0; i--) {
+        cout << binary[i];
+    }
+}
+int main()
+{   
+    int dec;
+    cin >> dec;
+
+    dec_to_binary(dec);
 
     return 0;
 }
