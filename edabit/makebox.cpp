@@ -1,24 +1,55 @@
 #include <iostream>
+#include <cstdio>
+#include <vector>
+#include <string>
+/*
+Create a function that creates a box based on dimension n.
+makeBox(5) ➞ [
+  "#####",
+  "#   #",
+  "#   #",
+  "#   #",
+  "#####"
+]
 
-void makeBox(int size)
-{
-    char box[size*size];
+makeBox(3) ➞ [
+  "###",
+  "# #",
+  "###"
+]
 
-    char side = '#';
-    char inside = ' ';
+makeBox(2) ➞ [
+  "##",
+  "##"
+]
+*/
+using namespace std;
 
-    for (int i = 0; i <= size*size; i++)
-    {      
-        box[i] = side;
-        if (i == 4 || i == 8) 
-            std::cout << std::endl;
-        std::cout << box[i];
+vector<string> makeBox(int n) {
+    vector<string> box;
+
+    for (int i = 0; i < n; ++i) {
+        char symbol = '#';
+        string line = "";
+        for (int j = 0; j < n; ++j) {
+            bool row_check = (i > 0 && i < n-1);
+            bool mid_check = (j > 0 && j < n-1);
+
+            if (row_check && mid_check) symbol = ' ';
+            else                        symbol = '#';
+
+            line.push_back(symbol);
+        }
+        box.push_back(line);
     }
-    
+    return box;
 }
 
-int main()
-{
-    makeBox(4);
+int main() {
+    int n;
+    cin >> n;
+    for (string i : makeBox(n)) {
+        cout << i << endl;
+    }
     return 0;
 }
