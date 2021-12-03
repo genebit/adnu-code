@@ -14,6 +14,14 @@ string longBurp(int len)
     return burp + 'p';
 }
 
+/*
+Alternative Solution:
+	string longBurp(int num) {
+		string res = "Bu";
+			return res.append(num, 'r') + "p";
+	}
+*/
+
 int main()
 {
     // Create a function that returns the string "Burp" 
