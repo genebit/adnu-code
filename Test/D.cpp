@@ -3,7 +3,6 @@
 #include <string>
 #include <algorithm>
 
-
 using namespace std;
 
 void init() {
@@ -12,8 +11,7 @@ void init() {
 }
 
 int main() {
-    init(); 
-
-    cout << "Hello World" << endl;
+    init();
+    
     return 0;
 }
