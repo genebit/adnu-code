@@ -3,16 +3,14 @@
 
 using namespace std;
 
-float round(int decimalPlaces, float num) {
-    float value = (int)(num * pow(10, decimalPlaces) + 0.5);
-    cout << value;
-    return (float)value / pow(10, decimalPlaces);
+void roundoff(float& num, int nth) {
+    num = round(num * pow(10, nth)) / pow(10, nth);
 }
 
 int main() {
-    float num = 3.666666;
-    // round(x decimal places, inputnum);
-    cout << round(2, num);
+    float num = 3.5555;
+    roundoff(num, 3);
 
+    cout << num;
     return 0;
 }
