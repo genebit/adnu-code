@@ -1,5 +1,5 @@
 ## About
-Coding Repository for my stay here at a University.\
+Coding Repository for my stay here at a University.
 
 Includes:
 - Hackerrank Codes
