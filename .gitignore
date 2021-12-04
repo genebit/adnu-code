@@ -1,5 +1,5 @@
-output/main.exe
-output/main
+output/Main.exe
+output/Main
 .vscode/launch.json
 *.exe
 *.txt
