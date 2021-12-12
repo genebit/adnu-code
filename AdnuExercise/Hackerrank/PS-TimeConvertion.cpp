@@ -20,23 +20,19 @@ string timeConversion(string time) {
     if (time_of_day == "PM" && hh < 12) hh = formatPM[hh-1];
     if (time_of_day == "AM" && hh == 12) hh = 0;
 
-    if (stoi(to_string(hh)) < 10) hh = "0" + hh;
-    if (stoi(to_string(mm)) < 10) mm = "0" + mm;
-    if (stoi(to_string(ss)) < 10) ss = "0" + ss;
-
-    // converted = hh + col + mm + ss;
+    // (stoi(to_string(hh)) < 10) ? converted += "0" + to_string(hh) : converted += to_string(hh);
+    // converted += col;
+    // (stoi(to_string(mm)) < 10) ? converted += "0" + to_string(mm) : converted += to_string(mm);
+    // converted += col;
+    // (stoi(to_string(ss)) < 10) ? converted += "0" + to_string(ss) : converted += to_string(ss);
 
     return converted;
 }
 
 int main() {
-    // string time;
-    // getline(cin, time);
-    // cout << timeConversion(time);
-
-    // NOTE(GENE): Unfinished
-    int num = 9;
-    if (stoi(to_string(num)) < 10) cout << "0" + to_string(num);
+    string time;
+    getline(cin, time);
+    cout << timeConversion(time);
 
     return 0;
 }
