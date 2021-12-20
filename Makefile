@@ -1,10 +1,11 @@
 
-FINDFILES = find . -perm /ugo+x -type f \( -name \*.exe -o -name \*.out \) 
-# NOTE:	
-# 	-type f 	->	only search for files (not directories)
-#   \( & \)		->	are needed for the -type f to apply to all arguments
-# 	-o			->	logical OR operator
-# 	-name 		->	but the match is case insensitive
+FINDFILES = find . -type f \( -name \*.exe -o -name \*.out \) 
+
+create:
+	# TODO(Gene): Add if else here if the txt files are already there
+	@touch Input.txt Output.txt
+	@mkdir Output
+	@echo Successfully Added Input Output txt Files
 
 clean:
 	@$(FINDFILES) -delete
