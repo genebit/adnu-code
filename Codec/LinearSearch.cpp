@@ -2,35 +2,45 @@
 
 using namespace std;
 
+void init() {
+    freopen("../Input.txt", "r", stdin);
+    freopen("../Output.txt", "w", stdout);
+}
+
 int main() {
-    // Binary Search
-    vector<int> arr;
-    int num;
-    while (cin >> num) { arr.push_back(num); }
-    sort(arr.begin(), arr.end());
+    init();
 
-    // Output Sorted list
-    cout << "Sorted: ";
-    for (int num : arr) cout << num << " ";
+    int size, target;
+    cin >> size >> target;
+    // Store input
+    int arr[size];
+    for (int i = 0; i < size; i++) cin >> arr[i];
 
-    // Value to be searched throughout the array
-    int searchedValue = 10;
-    
-    // Binary Search
-    int upper = arr.size()-1,
-        low = 0,
-        middle = (low + upper) / 2;
-
-    while (arr[middle] != searchedValue) {
-        middle = (low + upper) / 2;
-        if (arr[middle] < searchedValue) low = middle+1;
-        else                             upper = middle-1;
-        if (arr[middle] == searchedValue) {
-            // Output
-            cout << "\nFound! at position: " << middle << endl;
+    // Process
+    int position;
+    bool isFound;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == target) {
+            position = i;
+            isFound = true;
             break;
         }
     }
+    // Output
+    (isFound) 
+        ? cout << "Found at position " << position << " in " << position+1 << " steps!\n" 
+        : cout << "Not Found!";
 
+    //----------2nd Solution----------//
+    // int position;
+    // bool isFound;
+    // for (int i = 0; i < size; ++i) {
+    //     if (arr[i] == target) {
+    //         cout << "Found at position " << i << " in " << i+1 << " steps!\n"; 
+    //         break;
+    //     }
+    //     if (i == arr[size-1] && arr[i] != arr[size-1])
+    //         cout << "Not Found!" << endl;
+    // }
     return 0;
 }
