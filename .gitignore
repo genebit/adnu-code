@@ -1,6 +1,6 @@
 Output/*
 *.out
-.vscode/launch.json
+.vscode/
 *.exe
 *.txt
 *.pdf
