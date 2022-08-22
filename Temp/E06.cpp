@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 struct Node
 {
@@ -33,8 +34,6 @@ public:
         node->next = this->head;
 
         this->head = node;
-
-        // increment the length of this list
         this->length++;
     }
     
@@ -42,7 +41,7 @@ public:
     {
         if (this->head != NULL)
         {
-            for (int i = 0; i < n*-1; i++) 
+            for (int i = 0; i < abs(n); i++) 
             {
                 Node *tmp = this->head;
                 this->head = this->head->next;
@@ -73,38 +72,52 @@ public:
     }
 };
 
-char operation(char op) {
-  if (op == 'i' || op == 'd' || op == 'r')
-    return op;
-  return 'x';
+char operation(char op) 
+{
+    if (op == 'i' || op == 'd' || op == 'r')
+        return op;
+    return 'x';
+}
+
+void init() 
+{
+    freopen("../Input.txt", "r", stdin);
+    freopen("../Output.txt", "w", stdout);
 }
 
 int main()
 {
+    init();
     SinglyLinkedList *list = new SinglyLinkedList();
     
-    char op;
+    char _operation;
     int value;
     
-    while (std::cin >> op >> value)
+    while (std::cin >> _operation >> value)
     {
-        if (operation(op) != 'x')
+        bool operationValid = operation(_operation) != 'x';
+        if (operationValid)
         {
-            switch (operation(op))
+            // determine each
+            switch (operation(_operation))
             {
                 case 'i':
-                    list->insert(value);
+                    list->insert(value); // process
                     
+                    // output
                     std::cout << "[" << list->length << "] ";
                     list->display();
                     std::cout << std::endl;
                     break;
                 case 'd':
-                    if (list->length - (value * -1) > 0)
+                    if ((list->length - abs(value)) > 0) // checks to not go less over 0
                     {
-                        list->deletion(value);
+                        list->deletion(value); // process
+
+                        // output
                         std::cout << "[" << list->length << "] ";
                         list->display();
+                        std::cout << std::endl;
                     }
                     else 
                     {
@@ -112,7 +125,9 @@ int main()
                     }
                     break;
                 case 'r':
-                    list->refresh(value);
+                    list->refresh(value); // process
+
+                    // output
                     std::cout << "[" << list->length << "] ";
                     list->display();
                     std::cout << std::endl;
