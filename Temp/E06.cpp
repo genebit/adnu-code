@@ -41,14 +41,11 @@ public:
     {
         if (this->head != NULL)
         {
-            for (int i = 0; i < abs(n); i++) 
-            {
-                Node *tmp = this->head;
-                this->head = this->head->next;
+            Node *tmp = this->head;
+            this->head = this->head->next;
 
-                delete tmp;
-                this->length--;
-            }
+            delete tmp;
+            this->length--;
         }
     }
     
@@ -110,11 +107,6 @@ int main()
                     std::cout << std::endl;
                     break;
                 case 'd':
-                    if (abs(value) > list->length)
-                    {
-                        value = list->length;
-                    }
-
                     if (list->length > 0)
                     {
                         list->deletion(value); // process
