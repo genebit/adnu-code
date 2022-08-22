@@ -53,9 +53,17 @@ public:
                 }
                 else
                 {
+                    std::cout << "THE LIST IS ALREADY EMPTY" << std::endl;
+                    this->head = NULL;
+                    this->length = 0;
                     break;
                 }
+
             }
+            // output
+            std::cout << "[" << this->length << "] ";
+            this->display();
+            std::cout << std::endl;
         }
     }
     
@@ -118,11 +126,6 @@ int main()
                     break;
                 case 'd':
                     list->deletion(value); // process
-
-                    // output
-                    std::cout << "[" << list->length << "] ";
-                    list->display();
-                    std::cout << std::endl;
                     break;
                 case 'r':
                     list->refresh(value); // process
