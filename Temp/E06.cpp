@@ -22,21 +22,20 @@ public:
 
     ~SinglyLinkedList() // destructor
     {
-        std::cout << "List deleted..." << std::endl;
+        std::cout << "List deleted" << std::endl;
     }
 
     void insert(int num)
     {
         Node *node = new Node(); // create a new blank node
         // fill that node with data
-        // note: the last node will always have the next pointer null
         node->data = num;
         node->next = this->head;
 
         this->head = node;
         this->length++;
     }
-    
+
     void deletion(int n)
     {
         if (this->head != NULL)
@@ -48,7 +47,7 @@ public:
             this->length--;
         }
     }
-    
+
     void refresh(int value)
     {
         if (this->length > 0)
@@ -69,27 +68,27 @@ public:
     }
 };
 
-char operation(char op) 
+char operation(char op)
 {
     if (op == 'i' || op == 'd' || op == 'r')
         return op;
     return 'x';
 }
 
-void init() 
+void print(SinglyLinkedList *list)
 {
-    freopen("../Input.txt", "r", stdin);
-    freopen("../Output.txt", "w", stdout);
+    std::cout << "[" << list->length << "] ";
+    list->display();
+    std::cout << std::endl;
 }
 
 int main()
 {
-    init();
     SinglyLinkedList *list = new SinglyLinkedList();
-    
+
     char _operation;
     int value;
-    
+
     while (std::cin >> _operation >> value)
     {
         bool operationValid = operation(_operation) != 'x';
@@ -98,44 +97,32 @@ int main()
             // determine each
             switch (operation(_operation))
             {
-                case 'i':
-                    list->insert(value); // process
-                    
-                    // output
-                    std::cout << "[" << list->length << "] ";
-                    list->display();
-                    std::cout << std::endl;
-                    break;
-                case 'd':
-                    if (list->length > 0)
-                    {
-                        list->deletion(value); // process
-
-                        // output
-                        std::cout << "[" << list->length << "] ";
-                        list->display();
-                        std::cout << std::endl;
-                    }
-                    else
-                    {
-                        std::cout << "THE LIST IS ALREADY EMPTY" << std::endl;
-                    }
-                    break;
-                case 'r':
-                    list->refresh(value); // process
-
-                    // output
-                    std::cout << "[" << list->length << "] ";
-                    list->display();
-                    std::cout << std::endl;
-                    break;
+            case 'i':
+                list->insert(value); // process
+                print(list);
+                break;
+            case 'd':
+                if (list->length > 0)
+                {
+                    list->deletion(value); // process
+                    print(list);
+                }
+                else
+                {
+                    std::cout << "THE LIST IS ALREADY EMPTY" << std::endl;
+                }
+                break;
+            case 'r':
+                list->refresh(value); // process
+                print(list);
+                break;
             }
         }
-        else 
+        else
         {
             std::cout << "INVALID COMMAND" << std::endl;
         }
     }
-    
+
     return 0;
 }
