@@ -73,11 +73,8 @@ public:
         return tmp;
     }
 
-    void remove_end()
+    void remove_start()
     {
-        // 1. traverse through the 2nd last element
-        // 2. change its next pointer to null
-        // 3. Free the memory of the last node
         if (this->head != NULL)
         {
             Node *tmp = this->head;
