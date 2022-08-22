@@ -43,11 +43,18 @@ public:
         {
             for (int i = 0; i < abs(n); i++) 
             {
-                Node *tmp = this->head;
-                this->head = this->head->next;
+                if (this->length > 0)
+                {
+                    Node *tmp = this->head;
+                    this->head = this->head->next;
 
-                delete tmp;
-                this->length--;
+                    delete tmp;
+                    this->length--;
+                }
+                else
+                {
+                    break;
+                }
             }
         }
     }
@@ -110,19 +117,12 @@ int main()
                     std::cout << std::endl;
                     break;
                 case 'd':
-                    if ((list->length - abs(value)) > 0) // checks to not go less over 0
-                    {
-                        list->deletion(value); // process
+                    list->deletion(value); // process
 
-                        // output
-                        std::cout << "[" << list->length << "] ";
-                        list->display();
-                        std::cout << std::endl;
-                    }
-                    else 
-                    {
-                        std::cout << "THE LIST IS ALREADY EMPTY" << std::endl;
-                    }
+                    // output
+                    std::cout << "[" << list->length << "] ";
+                    list->display();
+                    std::cout << std::endl;
                     break;
                 case 'r':
                     list->refresh(value); // process
