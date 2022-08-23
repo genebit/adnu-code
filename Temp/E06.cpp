@@ -38,30 +38,37 @@ public:
         this->length++;
     }
     
-    void deletion()
+    void deletion(int n)
     {
-        
+        if (this->head != NULL)
+        {
+            for (int i = 0; i < n*-1; i++) 
+            {
+                Node *tmp = this->head;
+                this->head = this->head->next;
+
+                delete tmp;
+                this->length--;
+            }
+        }
     }
     
-    void refresh()
+    void refresh(int value)
     {
-        
+        if (this->length > 0)
+        {
+            this->head = NULL;
+            this->length = 0;
+        }
     }
 
     void display()
     {
         Node *tmp = this->head; // tmp will be used to traverse the list
-        if (this->length == 0)
+        while (tmp) // while tmp is not null
         {
-            std::cout << "No elements in the list." << std::endl;
-        }
-        else
-        {
-            while (tmp) // while tmp is not null
-            {
-                std::cout << tmp->data << std::endl;
-                tmp = tmp->next;
-            }
+            std::cout << tmp->data << " ";
+            tmp = tmp->next;
         }
     }
 };
@@ -87,15 +94,34 @@ int main()
             {
                 case 'i':
                     list->insert(value);
-                    std::cout << "[" << list->length << "]" << list->display() << std::endl;
+                    
+                    std::cout << "[" << list->length << "] ";
+                    list->display();
+                    std::cout << std::endl;
                     break;
                 case 'd':
-                    list->deletion(value);
+                    if (list->length - (value * -1) > 0)
+                    {
+                        list->deletion(value);
+                        std::cout << "[" << list->length << "] ";
+                        list->display();
+                    }
+                    else 
+                    {
+                        std::cout << "THE LIST IS ALREADY EMPTY" << std::endl;
+                    }
                     break;
                 case 'r':
-                    list->refresh();
+                    list->refresh(value);
+                    std::cout << "[" << list->length << "] ";
+                    list->display();
+                    std::cout << std::endl;
                     break;
             }
+        }
+        else 
+        {
+            std::cout << "INVALID COMMAND" << std::endl;
         }
     }
     
