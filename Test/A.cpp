@@ -17,7 +17,7 @@ struct Node {
 };
 
 class DoublyLinkedList {
-public:
+  public:
     int size;
     Node *head;
 
@@ -28,7 +28,7 @@ public:
     void push_back(string data);
     void pop_front();
     void pop_back();
-    void search_data(string data);
+    Node *search_data(string data);
     void pop_node(Node *node);
     void display_forward();
     void display_backward();
@@ -43,6 +43,27 @@ DoublyLinkedList::~DoublyLinkedList() {
     cout << "List Deleted." << endl;
 }
 
+Node *DoublyLinkedList::search_data(string data) {
+    Node *temp = this->head;
+    while (temp) {
+        if (temp->data == data) {
+            return temp;
+        }
+        temp = temp->next;
+    }
+    return NULL;
+}
+
+void DoublyLinkedList::pop_node(Node *target) {
+    if (target != NULL) {
+        target->prev->next = target->next;
+        this->size--;
+        delete target;
+    } else {
+        cout << "TARGET DOES NOT EXIST" << endl;
+    }
+}
+
 void DoublyLinkedList::push_front(string data) {
     Node *new_node = new Node();
     new_node->data = data;
@@ -54,9 +75,8 @@ void DoublyLinkedList::push_front(string data) {
 
 void DoublyLinkedList::push_back(string data) {
     if (this->head == NULL) {
-        this->push_front(data);        
-    }
-    else {
+        this->push_front(data);
+    } else {
         Node *new_node = new Node();
         Node *temp = this->head;
         while (temp) {
@@ -81,9 +101,8 @@ void DoublyLinkedList::pop_front() {
 
 void DoublyLinkedList::pop_back() {
     if (this->head == NULL) {
-        this->pop_back();        
-    }
-    else {
+        this->pop_back();
+    } else {
         Node *temp = this->head;
         while (temp) {
             if (temp->next == NULL) {
@@ -106,28 +125,25 @@ void DoublyLinkedList::display_forward() {
 }
 
 void DoublyLinkedList::display_backward() {
-    // Node *tail = this->head;
-    // while (tail->next) {
-    //     tail = tail->next;
-    // }
+    // set the current tail to the last node of the list
+    Node *tail = this->head;
 
-    // while (tail->prev) {
-    //     cout << tail->prev->data << endl;
-    //     tail = tail->prev;
-    // }
+    while (tail->next) {
+        tail = tail->next;
+    }
+
+    // display the tail backwards
+    while (tail != this->head) {
+        cout << tail->data << endl;
+        tail = tail->prev;
+    }
+    cout << tail->data << endl;
 }
 
 int main() {
     init();
 
     DoublyLinkedList *list = new DoublyLinkedList();
-    list->push_back("Burger");
-    list->push_back("Spaghetti");
-    list->push_back("Carbonara");
-    list->pop_back();
-
-    // list->display_forward();
-    list->display_backward();
 
     return 0;
 }
