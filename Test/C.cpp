@@ -4,37 +4,84 @@
 
 using namespace std;
 
-void init() {
-    freopen("../Input.txt", "r", stdin);
-    freopen("../Output.txt", "w", stdout);
+class Node {
+  public:
+    char data;
+    Node *next;
+};
+
+class LinkedList {
+  public:
+    int length;
+    Node *head;
+
+    LinkedList();
+    ~LinkedList();
+    
+    void push(char data);
+    void pop();
+    void display();
+};
+
+LinkedList::LinkedList() {
+    this->head = NULL;
+    this->length = 0;
+}
+
+LinkedList::~LinkedList() {
+    cout << "The list is deleted." << endl;
+}
+
+void LinkedList::push(char data) {
+    Node *new_node = new Node();
+    new_node->data = data;
+    new_node->next = this->head;
+    this->head = new_node;
+    this->length++;
+}
+
+void LinkedList::pop() {
+    Node *temp = this->head;
+    this->head = temp->next;
+    delete temp;
+    this->length--;
+}
+
+void LinkedList::display() {
+    int size = this->length;
+    for (int i = 0; i < size; i++) {
+        cout << this->head->data;
+        this->pop();
+    }
+    cout << endl;
 }
 
 int main() {
-    init();
-
-    int divided_by, number;
     
-    const int HEX[16] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F' };
+    LinkedList *list = new LinkedList();
 
-    while (cin >> number >> divided_by) {
-        string s;
+    int base, number;
+
+    const int HEX[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+        'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+        'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+
+    while (cin >> number >> base) {
         while (number > 0) {
-            int remainder = number % divided_by;
+            int remainder = number % base;
             
-            if (divided_by == 16) {
-                if (remainder > 9)
-                    s += (char)HEX[remainder];
+            if (base > 10) {
+                if (remainder > 9) 
+                    list->push(HEX[remainder]);
                 else
-                    s += to_string(HEX[remainder]);
+                    list->push(to_string(remainder)[0]);
             }
-            else {
-                s += to_string(remainder);
-            }
+            else list->push(to_string(remainder)[0]);
             
-            number /= divided_by;
+            number /= base;
         }
-        reverse(s.begin(), s.end());
-        cout << s << endl;
+        list->display();
     }
     return 0;
 }
