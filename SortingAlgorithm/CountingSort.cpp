@@ -8,7 +8,10 @@ void init()
 
 void countingSort(int arr[], int size)
 {
-
+    /*
+    1. FIND THE MIN-1 AND MAX ELEMENT TO FIND THE RANGE
+    2. 
+    */
 }
 
 int main()
